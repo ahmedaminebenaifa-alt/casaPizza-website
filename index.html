@@ -15,18 +15,44 @@
 
     <header id="main-header">
         <h1 id="logo">CASA PIZZA</h1>
-        <a href="tel:0664612975" id="phone-widget">
-            <svg class="phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-            </svg>
-            <span class="phone-number">06.64.61.29.75</span>
-        </a>
-    </header>
+        <div id="contact-widgets">
+            
+            <a href="mailto:@casa.pizza.tergnier.2024" target="_blank" class="contact-pill" id="email-widget">
+                <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="contact-text">@casa.pizza.tergnier.2024</span>
+            </a>
 
+            <a href="tel:0664612975" class="contact-pill" id="phone-widget">
+                <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                <span class="contact-text">06.64.61.29.75</span>
+            </a>
+            
+        </div>
+    </header>
+    <div id="social-dropdown">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/casa.pizza.tergnier.2024" target="_blank" class="social-link" title="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" title="Instagram">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@smidasouhail " target="_blank" class="social-link" title="TikTok">
+                <svg viewBox="0 0 24 24">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+            </a>
+        </div>
+        
+        <button id="trigger-btn">Trigger me</button>
+    </div>
     <main>
         <section class="content">
             <h2>Welcome to Casa Pizza</h2>
-            <p>Scroll down. The background curves dynamically with your mouse, while the text glides smoothly to the top left!</p>
         </section>
     </main>
 

@@ -25,7 +25,7 @@ body, html {
 #curve-path {
     fill: var(--warm-bg);
 
-    transition: fill 0.15s cubic-bezier(0.25, 1, 0.5, 1); 
+    transition: fill 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
 
@@ -53,49 +53,11 @@ header {
     margin: 0;
     white-space: nowrap;
  
-    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) ;
 
     will-change: transform, color, top, left; 
 }
  
-#phone-widget {
-    position: absolute;
-    top: 45px; 
-    right: 3rem; 
-    transform: translateY(-50%);
-    
-
-    display: flex;
-    align-items: center;
-    background-color: var(--warm-bg);
-    color: var(--fancy-brown);
-    border-radius: 50px;
-    padding: 10px;
-    text-decoration: none;
-    
- 
-    width: 24px; 
-    overflow: hidden; 
-    opacity: 0; 
-    pointer-events: none; 
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.phone-icon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0; 
-    fill: currentColor;
-}
-
-.phone-number {
-    font-weight: bold;
-    font-size: 1.1rem;
-    white-space: nowrap;
-    opacity: 0;
-    margin-left: 0;
-    transition: all 0.3s ease;
-}
 
 body.scrolled #curve-path {
     fill: var(--fancy-brown); 
@@ -106,23 +68,85 @@ body.scrolled #logo {
     
 
     top: 45px;
-    left: 3rem;
-    transform: translate(0, -50%) scale(0.35); 
+    left: 5rem;
+    transform: translate(-40%, -50%) scale(0.35); 
 }
 
-body.scrolled #phone-widget {
+
+
+ 
+#contact-widgets {
+    position: absolute;
+    top: 45px; 
+    right: 3rem;
+    transform: translateY(-50%);
+    
+   
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    z-index: 1005; 
+    pointer-events: none; 
+}
+
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    background-color: var(--warm-bg);
+    color: var(--fancy-brown);
+    border-radius: 50px;
+    padding: 10px;
+    text-decoration: none;
+    
+   
+    width: 24px;
+    overflow: hidden; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0; 
+    fill: currentColor;
+}
+
+.contact-text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;
+    opacity: 0;
+    margin-left: 0;
+    transition: all 0.3s ease;
+}
+
+
+
+
+body.scrolled .contact-pill {
     opacity: 1;
     pointer-events: auto; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 
+
+
 body.scrolled #phone-widget:hover {
-    width: 175px; 
+    width: 145px; 
     padding: 10px 20px;
 }
 
-body.scrolled #phone-widget:hover .phone-number {
+body.scrolled #email-widget:hover {
+    width: 230px; 
+    padding: 10px 20px;
+}
+ 
+body.scrolled .contact-pill:hover .contact-text {
     opacity: 1; 
     margin-left: 10px; 
 }
@@ -135,4 +159,87 @@ main {
     padding: 2rem;
     text-align: center;
     color: var(--fancy-brown);
+}
+
+#social-dropdown {
+    position: fixed;
+    
+    top: 90px; 
+    left: 50%;
+    
+
+    transform: translateX(-50%) translateY(-100%); 
+    
+
+    z-index: 998; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    
+
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    background-color: var(--fancy-brown);
+    padding: 15px 25px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+
+.social-link svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: var(--warm-bg); 
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+}
+
+.social-link:hover svg {
+    transform: scale(1.2); 
+}
+
+
+#trigger-btn {
+    background-color: var(--warm-bg);
+    color: var(--fancy-brown);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 6px 16px;
+    border: 2px solid var(--fancy-brown);
+    border-top: none; 
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+#trigger-btn:hover {
+    background-color: #f0e6d6;
+}
+
+
+body.scrolled #social-dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    
+    transform: translateX(-50%) translateY(-55px); 
+}
+
+
+body.scrolled #social-dropdown.open {
+   
+    transform: translateX(-50%) translateY(0); 
 }

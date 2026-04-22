@@ -5,13 +5,15 @@ function handleScrollAndCurve() {
     const scrollY = window.scrollY;
     
 
-    if (scrollY > 50) {
+    if (scrollY > 0) {
         body.classList.add('scrolled');
-    } else {
+    }
+     else {
         body.classList.remove('scrolled');
     }
 
 
+    
     const maxScroll = 400; 
     let progress = Math.min(scrollY / maxScroll, 1);
     
@@ -40,3 +42,10 @@ window.addEventListener('scroll', handleScrollAndCurve);
 window.addEventListener('resize', handleScrollAndCurve);
 
 handleScrollAndCurve();
+const triggerBtn = document.getElementById('trigger-btn');
+const socialDropdown = document.getElementById('social-dropdown');
+
+
+triggerBtn.addEventListener('click', () => {
+    socialDropdown.classList.toggle('open');
+});
