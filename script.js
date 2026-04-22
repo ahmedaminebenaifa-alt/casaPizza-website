@@ -1,51 +1,96 @@
 const path = document.getElementById('curve-path');
 const body = document.body;
+const triggerBtn = document.getElementById('trigger-btn');
+const socialDropdown = document.getElementById('social-dropdown');
+
+let lastScrollY = window.scrollY;
+
 
 function handleScrollAndCurve() {
-    const scrollY = window.scrollY;
+    const currentScrollY = window.scrollY;
     
-
-    if (scrollY > 0) {
+   
+    if (currentScrollY > 50) {
         body.classList.add('scrolled');
-    }
-     else {
+    } else {
         body.classList.remove('scrolled');
     }
 
 
+    if (currentScrollY > 400) {
+        if (currentScrollY > lastScrollY) {
+            body.classList.add('hide-header');
+            if(socialDropdown) socialDropdown.classList.remove('open'); 
+        } else {
+            body.classList.remove('hide-header');
+        }
+    } else {
+        body.classList.remove('hide-header');
+    }
     
-    const maxScroll = 400; 
-    let progress = Math.min(scrollY / maxScroll, 1);
-    
+    lastScrollY = currentScrollY;
 
+    const maxScroll = 400; 
+    let progress = Math.min(currentScrollY / maxScroll, 1);
     const easeProgress = 1 - Math.pow(1 - progress, 3);
     
     const width = window.innerWidth;
     const startHeight = window.innerHeight; 
     const endHeight = 90; 
     
-
     const currentHeight = startHeight + (endHeight - startHeight) * easeProgress;
-   
+    
     const startCurveY = window.innerHeight + 250; 
     const endCurveY = 90; 
     const currentCurveY = startCurveY + (endCurveY - startCurveY) * easeProgress;
     
-    
     const d = `M 0 0 L ${width} 0 L ${width} ${currentHeight} Q ${width/2} ${currentCurveY} 0 ${currentHeight} Z`;
     
-
-    path.setAttribute('d', d);
+    if (path) path.setAttribute('d', d);
 }
+
 
 window.addEventListener('scroll', handleScrollAndCurve);
 window.addEventListener('resize', handleScrollAndCurve);
 
+if (triggerBtn) {
+    triggerBtn.addEventListener('click', () => {
+        socialDropdown.classList.toggle('open');
+    });
+}
+
+
 handleScrollAndCurve();
-const triggerBtn = document.getElementById('trigger-btn');
-const socialDropdown = document.getElementById('social-dropdown');
 
 
-triggerBtn.addEventListener('click', () => {
-    socialDropdown.classList.toggle('open');
+document.addEventListener("DOMContentLoaded", function() {
+    
+
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        let heroTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#hero",
+               
+                start: "top 50%", 
+                onEnter: () => heroTl.restart(),
+                onEnterBack: () => heroTl.restart()
+            }
+        });
+
+
+        heroTl.fromTo(".hero-title", 
+        { opacity: 0, y: 50 }, 
+        { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" }
+        );
+
+        heroTl.fromTo(".hero-description", 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        "-=1" 
+        );
+    } else {
+        console.error("GSAP failed to load. Check your HTML script tags.");
+    }
 });

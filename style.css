@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 :root {
     --fancy-brown: #4A2B14; 
     --warm-bg: #FDF6EC;    
@@ -7,10 +9,15 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #FFFFFF; 
+    
     height: 300vh; 
 }
 
+body {
+    background-color: #FDF6EC; 
+    margin: 0;
+    padding: 0;
+}
 
 #svg-bg {
     position: fixed;
@@ -152,7 +159,7 @@ body.scrolled .contact-pill:hover .contact-text {
 }
 
 main {
-    padding-top: 120vh;
+    padding-top: 80vh;
 }
 
 .content {
@@ -242,4 +249,91 @@ body.scrolled #social-dropdown {
 body.scrolled #social-dropdown.open {
    
     transform: translateX(-50%) translateY(0); 
+}
+
+
+#hero {
+    position: relative;
+    
+   
+    margin-top: -120px; 
+    min-height: 120vh;
+    padding: 200px 0;
+    
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    z-index: 5;
+    background: url('https://images.unsplash.com/photo-1594007654729-407eedc4be65?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    background-attachment: fixed; 
+    background-size: cover;
+}
+
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to bottom, 
+        #FDF6EC 0%,
+        rgba(253, 246, 236, 0.9) 10%,
+        rgba(133, 96, 43, 0.9) 30%,
+        rgba(105, 63, 31, 0.9) 50%,
+        rgba(133, 96, 43, 0.9) 70%,   
+        rgba(253, 246, 236, 0.9) 90%, 
+        #FDF6EC 100%                  
+    );
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    
+    color: #4A2B14;
+    padding: 100px 60px; 
+    max-width: 850px;
+    margin: 0 auto;
+
+    margin-top: 50px; 
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: clamp(4rem, 12vw, 7.5rem); 
+    color: var(--warm-bg); 
+    margin-bottom: 40px;
+    line-height: 1.1;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.6);
+    
+    
+    opacity: 0;
+
+}
+
+
+.hero-description {
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    line-height: 2;
+    max-width: 700px;
+    font-weight: 300;
+    margin: 0 auto;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    
+    
+    opacity: 0;
+
 }
