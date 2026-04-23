@@ -1,0 +1,11 @@
+--2026-04-22 16:10:48--  https://img.freepik.com/premium-psd/lasagna-isolated-transparent-background_999327-98055.jpg?semt=ais_hybrid
+Resolving img.freepik.com (img.freepik.com)... 196.203.103.146, 196.203.103.155, 2c0f:f698:cff0:1::c4cb:679b, ...
+Connecting to img.freepik.com (img.freepik.com)|196.203.103.146|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 67775 (66K) [image/jpeg]
+Saving to: ‘lasagne.png’
+
+lasagne.png                              0%[                                                                             ]       0  --.-KB/s               lasagne.png                             33%[=========================>                                                   ]  22.44K  86.0KB/s               lasagne.png                            100%[============================================================================>]  66.19K   148KB/s    in 0.4s    
+
+2026-04-22 16:10:50 (148 KB/s) - ‘lasagne.png’ saved [67775/67775]
+
