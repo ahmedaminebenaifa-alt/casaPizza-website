@@ -7,13 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <svg id="svg-bg" xmlns="http://www.w3.org/2000/svg">
         <path id="curve-path" d=""></path> 
     </svg>
-
+    <div id="blur-overlay"></div>
+    
     <header id="main-header">
         <h1 id="logo">CASA PIZZA</h1>
         <div id="contact-widgets">
@@ -34,6 +36,7 @@
             
         </div>
     </header>
+
     <div id="social-dropdown">
         <div class="social-icons">
             <a href="https://www.facebook.com/casa.pizza.tergnier.2024" target="_blank" class="social-link" title="Facebook">
@@ -42,54 +45,415 @@
             <a href="#" class="social-link" title="Instagram">
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/></svg>
             </a>
-            <a href="https://www.tiktok.com/@smidasouhail " target="_blank" class="social-link" title="TikTok">
+            <a href="https://www.tiktok.com/@smidasouhail" target="_blank" class="social-link" title="TikTok">
                 <svg viewBox="0 0 24 24">
                     <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
                 </svg>
             </a>
         </div>
-        
         <button id="trigger-btn">Tirez-moi</button>
     </div>
+
     <main>
         <section id="hero">
             <div class="hero-overlay"></div>
             
             <div class="hero-content">
                 <h2 class="hero-title">Bienvenue chez CASA PIZZA</h2>
-                <p class="hero-description">Fermez les yeux un instant. Imaginez des ingrédients ultra-frais, une sauce maison qui fond en bouche, et des saveurs qui explosent dès la première bouchée... Vous avez faim ? C'est normal. Ne rêvez plus, goûtez-le. </p>
+                <p class="hero-description">Fermez les yeux un instant. Imaginez des ingrédients ultra-frais, une sauce maison qui fond en bouche, et des saveurs qui explosent dès la première bouchée... Vous avez faim ? C'est normal. Ne rêvez plus, goûtez-le.</p>
             </div>
         </section>
+
         <section id="menu-section">
-    
+
+            <div class="section-title" style="text-align: center; margin-bottom: 50px; padding-top: 30px;">
+                <h2 style="font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: #FCA311; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); margin: 0; letter-spacing: 2px;">Notre Menu</h2>
+                <div class="divider" ></div>
+            </div>
+
             <div class="menu-container">
         
-                <div id="pizza-margherita-card" class="pizza-flip-card">
-            
+                <div class="menu-flip-card">
                     <div class="card-face card-front">
                         <div class="image-stack">
                             <img src="images/plate.png" alt="Plate" class="plate-img">
-                            <div class="dish-wrapper">
-                                <img src="images/pizza.png" alt="Margarita" class="dish-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/pizza.png" alt="Pizzas" class="dish-img">
+                            </div>
                         </div>
-                        </div>
-                
                         <button class="nos-pizzas-btn">NOS PIZZAS</button>
                     </div>
 
                     <div class="card-face card-back">
-                        <h3>PRICE:</h3>
-                        <p class="price">junior♟️:9€</p>
-                        <p class="price">senior♟️♟️:12€</p>
-                        <p class="price">mega♟️♟️♟️♟️:18€</p>
+                        <h3>Nos Pizzas</h3>
+                        <p class="price-legend">Junior | Sénior | Méga</p>
+                        
+                        <div class="menu-list-container">
+                            <div class="menu-category">Sauce Tomate</div>
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Margarita</span> <span class="price-tag">7€ | 10€ | 13€</span></div><small>Tomate, mozzarella</small></li>
+                                <li><div class="menu-header"><span>Reines</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, jambon, champignons</small></li>
+                                <li><div class="menu-header"><span>Chèvre</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, fromage de chèvre</small></li>
+                                <li><div class="menu-header"><span>Napolitaine</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, anchois, câpres, olives</small></li>
+                                <li><div class="menu-header"><span>Vegas</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, jambon, œuf</small></li>
+                                <li><div class="menu-header"><span>Neptune</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, thon, poivrons, œuf, olives, oignons</small></li>
+                                <li><div class="menu-header"><span>Orientale</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, merguez, poivrons, œuf, oignons</small></li>
+                                <li><div class="menu-header"><span>Chorizo</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, chorizo, viande hachée, chèvre, tomates cerise</small></li>
+                                <li><div class="menu-header"><span>La Spéciale</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, jambon, chèvre, oignon, poivrons</small></li>
+                                <li><div class="menu-header"><span>4 Saisons</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, jambon, poivrons, champignons, artichauts, olives</small></li>
+                                <li><div class="menu-header"><span>Bolognaise</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, oignon, viande hachée, pommes de terre</small></li>
+                                <li><div class="menu-header"><span>Volcano</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, œuf, viande hachée, merguez</small></li>
+                                <li><div class="menu-header"><span>Capri</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, viande hachée, chèvre</small></li>
+                                <li><div class="menu-header"><span>4 Fromages</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, roquefort, chèvre, parmesan</small></li>
+                                <li><div class="menu-header"><span>Végétarienne</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, oignons, poivrons, olives, tomates cerise</small></li>
+                                <li><div class="menu-header"><span>Sicilienne</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, poulet, chèvre, oignons</small></li>
+                                <li><div class="menu-header"><span>La Ternoise <span style="color:red;font-size:0.7em;">NEW</span></span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, poulet, poivrons, œuf, olives</small></li>
+                                <li><div class="menu-header"><span>3 Jambons</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, lardons, jambon, chorizo</small></li>
+                                <li><div class="menu-header"><span>Mexicaine</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, merguez, viande hachée, poivrons</small></li>
+                                <li><div class="menu-header"><span>Fruits de Mer</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, cocktail de fruits de mer, persil, citron</small></li>
+                                <li><div class="menu-header"><span>Paysanne</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, lardons, viande hachée, fromage à raclette</small></li>
+                                <li><div class="menu-header"><span>Kebab</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, Kebab, poivrons, oignon</small></li>
+                                <li><div class="menu-header"><span>La Gourmande</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, poulet, viande hachée, merguez</small></li>
+                                <li><div class="menu-header"><span>Pepperoni</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Tomate, fromage, chorizo, œuf</small></li>
+                                <li><div class="menu-header"><span>Latina</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Sauce barbecue, fromage, viande hachée, merguez, œuf</small></li>
+                            </ul>
+
+                            <div class="menu-category" style="margin-top:20px;">Crème Fraîche</div>
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Boisée</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, poulet, poivrons, sauce gruyère</small></li>
+                                <li><div class="menu-header"><span>Parma</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, jambon, viande hachée, merguez</small></li>
+                                <li><div class="menu-header"><span>Chèvre Miel</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche ou sauce tomate, fromage, chèvre, miel</small></li>
+                                <li><div class="menu-header"><span>Gorfa</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, viande hachée, oignons, chèvre</small></li>
+                                <li><div class="menu-header"><span>Reblochon</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, lardons, reblochon, pommes de terre</small></li>
+                                <li><div class="menu-header"><span>Campagnarde</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, poulet, champignons</small></li>
+                                <li><div class="menu-header"><span>Indienne</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, poulet, poivrons, sauce curry</small></li>
+                                <li><div class="menu-header"><span>Maroilles</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, poulet, pommes de terre, fromage maroilles</small></li>
+                                <li><div class="menu-header"><span>Raclette</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, jambon, pommes de terre, fromage à raclette</small></li>
+                                <li><div class="menu-header"><span>Chicken</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, poulet, pommes de terre</small></li>
+                                <li><div class="menu-header"><span>Romana</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, saumon, citron</small></li>
+                                <li><div class="menu-header"><span>Lanoise</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, jambon, pommes de terre, œuf</small></li>
+                                <li><div class="menu-header"><span>Juventus</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, viande hachée, maroilles, oignons, œuf</small></li>
+                                <li><div class="menu-header"><span>Casa Pizza</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, poulet, pomme de terre, poivrons, œuf</small></li>
+                                <li><div class="menu-header"><span>Boursin</span> <span class="price-tag">9€ | 12€ | 18€</span></div><small>Crème fraîche, fromage, viande hachée, Boursin, pomme de terre</small></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
                     </div>
                 </div>
         
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            <img src="images/plate.png" alt="Plate" class="plate-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/burger.png" alt="Burger" class="dish-img"> 
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">NOS BURGERS</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Nos Burgers</h3>
+                        <p class="price-legend">Servis avec frites | +1€ Boisson 33cl</p>
+                        
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Cheese Burger</span> <span class="price-tag">6€</span></div><small>1 Steak 80g, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Double Cheese</span> <span class="price-tag">8€</span></div><small>2 Steaks 80g, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Triple Cheese</span> <span class="price-tag">10€</span></div><small>3 Steaks 80g, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Chicken</span> <span class="price-tag">7€</span></div><small>1 Poulet Pané, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Casa Burger</span> <span class="price-tag">12€</span></div><small>Saumon fumé, avocat, crudités</small></li>
+                                <li><div class="menu-header"><span>Bacon Burger</span> <span class="price-tag">8.50€</span></div><small>1 Steak 80g, bacon, œuf, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Chti Burger</span> <span class="price-tag">9€</span></div><small>1 Steak 80g, maroilles, galette de P. de terre, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Le Monster</span> <span class="price-tag">10€</span></div><small>1 Steak 180g, œuf, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Le Royal</span> <span class="price-tag">12€</span></div><small>2 Steaks 180g, œuf, cheddar, crudités</small></li>
+                                <li><div class="menu-header"><span>Le Végétarien</span> <span class="price-tag">6€</span></div><small>Galette de P. de terre, cheddar, crudités</small></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            <img src="images/plate.png" alt="Plate" class="plate-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/tacos.png" alt="Tacos" class="dish-img" > 
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">NOS TACOS</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Nos Tacos</h3>
+                        <p class="price-legend">Servis avec frites</p>
+                        
+                        <div class="menu-list-container">
+                            <div class="menu-category" style="font-size: 0.85em; text-align: center;">Galette garnie de viande, frites et sauce fromagère + 1 sauce au choix</div>
+                            
+                            <ul class="menu-list" style="margin-top: 15px;">
+                                <li><div class="menu-header"><span>Tacos 1 Viande</span> <span class="price-tag">7€</span></div></li>
+                                <li><div class="menu-header"><span>Tacos 2 Viandes</span> <span class="price-tag">9€</span></div></li>
+                                <li><div class="menu-header"><span>Tacos 3 Viandes</span> <span class="price-tag">10€</span></div></li>
+                                <li><div class="menu-header"><span>Tacos XL (3 Viandes)</span> <span class="price-tag">13€</span></div></li>
+                                <li><div class="menu-header"><span>Gratiné</span> <span class="price-tag">+2€</span></div><small>Maroilles, Cheddar, Raclette ou Œuf</small></li>
+                            </ul>
+
+                            <div class="menu-category" style="margin-top:20px;">Viandes & Sauces</div>
+                            <ul class="menu-list">
+                                <li><small><strong>Viandes :</strong> Viande Hachée, Tenders, Kebab, Poulet, Nuggets, Merguez, Cordon Bleu</small></li>
+                                <li><small><strong>Sauces (Supp sauce +0.30€) :</strong> Mayo, Ketchup, Samouraï, Andalouse, Algérienne, Biggy Burger, Blanche, Barbecue, Harissa</small></li>
+                                <li><div class="menu-header"><span>Extras (Fromages)</span> <span class="price-tag">+1€</span></div><small>Raclette, Chèvre, Mozza, Maroilles, Tartiflette, Boursin</small></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            <img src="images/plate.png" alt="Plate" class="plate-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/pasta.png" alt="Pâtes" class="dish-img" > 
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">NOS PÂTES</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Nos Pâtes</h3>
+                        <p class="price-legend">Plat de pâtes à 9€</p>
+                        
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Pennes Bolognaise</span> <span class="price-tag">9€</span></div></li>
+                                <li><div class="menu-header"><span>Pennes Lardons</span> <span class="price-tag">9€</span></div></li>
+                                <li><div class="menu-header"><span>Pennes Saumon</span> <span class="price-tag">9€</span></div></li>
+                                <li><div class="menu-header"><span>Pennes Poulet</span> <span class="price-tag">9€</span></div></li>
+                                <li><div class="menu-header"><span>Pennes 4 Fromages</span> <span class="price-tag">9€</span></div></li>
+                                <li><div class="menu-header"><span>Lasagne Bolognaise</span> <span class="price-tag">9€</span></div></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            <img src="images/plate.png" alt="Plate" class="plate-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/baguetteFarcie.png" alt="Baguettes" class="dish-img" > 
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn" style="font-size: 0.9rem;">BAGUETTES FARCIES</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3 style="font-size: 1.8rem;">Baguettes Farcies</h3>
+                        <p class="price-legend">Servies avec frites + boisson 33cl</p>
+                        
+                        <div class="menu-list-container">
+                            <div class="menu-header" style="justify-content: center; margin-bottom: 15px;">
+                                <span class="price-tag" style="font-size: 1.2rem; border-bottom: 1px solid #FCA311; padding-bottom: 5px;">Formule unique à 12€</span>
+                            </div>
+
+                            <div class="menu-category">1. Base au Choix</div>
+                            <ul class="menu-list">
+                                <li><small style="text-align: center; display: block;">Base Tomate ou Crème Fraîche</small></li>
+                            </ul>
+
+                            <div class="menu-category" style="margin-top:20px;">2. Choisissez 2 Ingrédients</div>
+                            <ul class="menu-list">
+                                <li><small style="text-align: center; display: block; line-height: 1.6;">Viande Hachée • Thon • Jambon<br>Saumon • Poulet • Merguez</small></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            <img src="images/plate.png" alt="Plate" class="plate-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/salade.png" alt="Salades" class="dish-img" > 
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">NOS SALADES</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Nos Salades</h3>
+                        <p class="price-legend">Plat de salade à 8€</p>
+                        
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Mixte</span> <span class="price-tag">8€</span></div><small>Salade, tomate, lardons, maroilles, olives</small></li>
+                                <li><div class="menu-header"><span>Tenders</span> <span class="price-tag">8€</span></div><small>Salade, tomate, tenders, emmental</small></li>
+                                <li><div class="menu-header"><span>Végétarienne</span> <span class="price-tag">8€</span></div><small>Salade, tomate, galette de P.de terre, olives, emmental</small></li>
+                                <li><div class="menu-header"><span>César</span> <span class="price-tag">8€</span></div><small>Salade, tomate, jambon, raclette</small></li>
+                                <li><div class="menu-header"><span>À Composer</span> <span class="price-tag">8€</span></div><small>Salade, tomate, poulet, P. de terre, emmental, olives</small></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div> <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/frite.png" alt="Frites" class="dish-img" >
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">NOS FRITES</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Nos Frites</h3>
+                        <p class="price-legend">Frites & Box</p>
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Simple Frites</span> <span class="price-tag">3,50€</span></div></li>
+                                <li><div class="menu-header"><span>Double Frites</span> <span class="price-tag">5,90€</span></div></li>
+                            </ul>
+                            <div class="menu-category" style="margin-top:20px;">Bowls (10€)</div>
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>tenders</span></div></li>
+                                <li><div class="menu-header"><span>Cordon blue</span></div></li>
+                                <li><div class="menu-header"><span>Nuggets</span></div></li>
+                                
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            <img src="images/plate.png" alt="Plate" class="plate-img">
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/cornet.png" alt="Cornet" class="dish-img" >
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">NOS CORNETS</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Les Cornets</h3>
+                        <p class="price-legend">13,90€ | Frites et sauce maison</p>
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Cornet Boeuf</span></div></li>
+                                <li><div class="menu-header"><span>Cornet Poulet</span></div></li>
+                                <li><div class="menu-header"><span>Cornet Thon</span></div></li>
+                            </ul>
+                            <div class="menu-category" style="font-size: 0.85em; text-align: center; margin-top: 15px;">Inclus : Salade méchouia, œuf, olives.</div>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+                <div class="menu-flip-card">
+                    <div class="card-face card-front">
+                        <div class="image-stack">
+                            
+                            <div class="dish-wrapper" style="transform: scale(0.9); margin-top: -10px;">
+                                <img src="images/coke.png" alt="Boissons" class="dish-img" >
+                            </div>
+                        </div>
+                        <button class="nos-pizzas-btn">BOISSONS & DESSERTS</button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <h3>Boissons</h3>
+                        <p class="price-legend">Rafraîchissements</p>
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Sodas (33cl)</span> <span class="price-tag">1,90€</span></div></li>
+                                <li><div class="menu-header"><span>Maxi Boisson (1,25l)</span> <span class="price-tag">3€</span></div></li>
+                            </ul>
+                        </div>
+                        <h3>DESSERTS</h3>
+                        <p class="price-legend">Délicieux</p>
+                        <div class="menu-list-container">
+                            <ul class="menu-list">
+                                <li><div class="menu-header"><span>Brownies</span> <span class="price-tag">2,50€</span></div></li>
+                                <li><div class="menu-header"><span>Tarte aux pommes</span> <span class="price-tag">2,50€</span></div></li>
+                                <li><div class="menu-header"><span>Tarte aux citrons</span> <span class="price-tag">2,50€</span></div></li>
+                                <li><div class="menu-header"><span>Tarte aux daim</span> <span class="price-tag">3€</span></div></li>
+                                <li><div class="menu-header"><span>Tiramisu</span> <span class="price-tag">3€</span></div></li>
+                            </ul>
+                        </div>
+                        <button class="retour-btn">Retour</button>
+                    </div>
+                </div>
+
+            </div> 
+        </section>
+        <section id="localisation-section">
+            <div class="section-title">
+                <h2>Où Nous Trouver</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="location-container">
+                <div class="location-info">
+                    <h3 class="brand-title">Casa Pizza</h3>
+                    
+                    <div class="info-badges">
+                        <span class="badge delivery"><i class="fas fa-motorcycle"></i> Livraison Gratuite</span>
+                        <span class="badge halal"><i class="fas fa-check-circle"></i> Viande Halal</span>
+                    </div>
+                    
+                    <div class="contact-details">
+                        <p class="contact-line">
+                            <i class="fas fa-map-marker-alt"></i> 
+                            <span><strong>Adresse :</strong> 93 Boulevard Gambetta, 02700 Tergnier</span>
+                        </p>
+                        <p class="contact-line">
+                            <i class="fas fa-phone-alt"></i> 
+                            <span><strong>Téléphone :</strong> 06.64.61.29.75</span>
+                        </p>
+                    </div>
+                    
+                    <div class="horaires">
+                        <div class="horaires-header">
+                            <i class="far fa-clock"></i>
+                            <h4>Horaires d'ouverture</h4>
+                        </div>
+                        <ul>
+                            <li>
+                                <span class="days">Lun, Mar, Jeu, Ven, Sam, Dim</span> 
+                                <span class="hours">17h00 - 02h00</span>
+                            </li>
+                            <li>
+                                <span class="days">Mercredi</span> 
+                                <span class="hours closed">Fermé</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1826.5248018509137!2d3.288274977968523!3d49.65248764200163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e83ff1b3400a8d%3A0x46ca1e7bd38cd3c2!2sCASA%20PIZZA%20Tergnier!5e0!3m2!1sen!2stn!4v1776985817752!5m2!1sen!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </section>
+
+    </main> 
+    <footer id="main-footer">
+        <div class="footer-content">
+            <h2 class="footer-logo">Casa Pizza</h2>
+            <p>La passion du goût, au cœur de Tergnier.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Casa Pizza Tergnier. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
     </main>
-
-
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
