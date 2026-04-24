@@ -304,7 +304,6 @@ main {
 }
 /*-------menu-------*/
 #menu-section {
-    
     background-color: #FDF6EC; 
     padding: 100px 0;
 }
@@ -314,7 +313,9 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 40px; 
+
+    row-gap: 80px; 
+    column-gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -323,7 +324,9 @@ main {
 .menu-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; 
+
+    row-gap: 80px; 
+    column-gap: 40px;
     justify-content: center;
     align-items: start;
     max-width: 1200px; 
@@ -336,20 +339,23 @@ main {
     height: 480px;
     cursor: pointer;
     transform-style: preserve-3d; 
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, opacity 0.4s ease, filter 0.4s ease;; 
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, opacity 0.4s ease, filter 0.4s ease;
     position: relative;
     border-radius: 20px;
     z-index: 10;
-    transform: perspective(1500px) rotateY(0deg);
+
+    transform: perspective(1500px) translateZ(0px) rotateY(0deg);
 }
 
 .menu-flip-card:not(.is-flipped):hover {
-    transform: perspective(1500px) rotateY(0deg) translateY(-8px);
+
+    transform: perspective(1500px) translateZ(0px) rotateY(0deg) translateY(-8px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .menu-flip-card.is-flipped {
-    transform: perspective(1500px) rotateY(180deg) scale(1.4);
+
+    transform: perspective(1500px) translateZ(150px) rotateY(180deg);
     z-index: 10000; 
     box-shadow: 0 30px 60px rgba(0,0,0,0.5);
     pointer-events: auto; 
@@ -372,6 +378,8 @@ main {
     background: #ffffff;
     z-index: 2; 
     padding: 30px;
+
+    transform: rotateY(0deg);
 }
 
 .image-stack {
@@ -424,7 +432,7 @@ main {
 .card-back {
     background: var(--fancy-brown);
     color: var(--warm-bg); 
-    transform: rotateY(180deg); 
+    transform: rotateY(180deg) translateZ(1px); 
     display: flex;
     flex-direction: column;
     padding: 20px 15px; 
@@ -565,51 +573,6 @@ main {
     color: var(--fancy-brown);
 }
 
-@media (max-width: 500px) {
-    .menu-flip-card.is-flipped {
-        transform: perspective(1500px) rotateY(180deg) scale(1.1);
-    }
-    
-    .card-back h3 {
-        font-size: 1.8rem; 
-    }
-    .price-legend {
-        font-size: 0.7rem;
-    }
-    .menu-category {
-        font-size: 0.9rem;
-    }
-    .menu-header span:first-child {
-        font-size: 0.85rem;
-    }
-    .menu-list li small {
-        font-size: 0.65rem;
-    }
-    .price-tag {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 380px) {
-    .menu-flip-card.is-flipped {
-        transform: perspective(1500px) rotateY(180deg) scale(1.05);
-    }
-}
-@media (max-width: 1024px) {
-    .menu-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 20px 10px;
-    }
-}
-
 .separator {
     font-size: 0.9rem;
     color: var(--primary-color);
@@ -633,10 +596,30 @@ main {
     margin-bottom: 8px;
 }
 
+@keyframes floatAnimation {
+    0%, 100% {
+        translate: 0 0;
+        box-shadow: 0 0 0 rgba(252, 163, 17, 0);;
+    }
+    50% {
+        translate: 0 -20px;
+        box-shadow: 0 20px 40px rgba(252, 163, 17, 0.25);
+    }
+}
+
+
+.menu-flip-card {
+    
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.menu-flip-card.delay{
+    animation-delay: -3s !important;
+}
 
 /* =========================================
-   SECTION LOCALISATION
-   ========================================= */
+SECTION LOCALISATION
+========================================= */
 #localisation-section {
     padding: 80px 20px;
     position: relative;
@@ -675,12 +658,16 @@ main {
     background: #fff; 
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    animation: floatAnimation 6s ease-in-out infinite;
 }
 
 .location-info {
     flex: 1;
     min-width: 300px;
+    border-radius: 20px;
+    margin: 20px;
     color: var(--fancy-brown);
+    animation: floatAnimation 4s ease-in-out infinite;
 }
 
 .location-info h3 {
@@ -736,11 +723,15 @@ main {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    align-self: center;
+    justify-self: center;
+    margin-right: 40px;
+    animation: floatAnimation 3s ease-in-out infinite;
 }
 
 /* =========================================
-   FOOTER
-   ========================================= */
+FOOTER
+========================================= */
 #main-footer {
     background-color: var(--fancy-brown);
     color: var(--warm-bg);
@@ -774,6 +765,7 @@ main {
     font-family: sans-serif;
     opacity: 0.7;
 }
+
 .section-title {
     text-align: center;
     margin-bottom: 50px;
@@ -802,7 +794,6 @@ main {
     opacity: 0.9;
 }
 
-
 .section-title .divider {
     height: 3px;
     width: 80px;
@@ -812,7 +803,6 @@ main {
     box-shadow: 0 0 8px rgba(252, 163, 17, 0.5);
     transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
 }
-
 
 .section-title:hover h2 {
     transform: scale(1.05); 
@@ -824,8 +814,8 @@ main {
 } 
 
 /* =========================================
-   ANIMATIONS INTERACTIVES LOCALISATION
-   ========================================= */
+ANIMATIONS INTERACTIVES LOCALISATION
+========================================= */
 .location-info {
     flex: 1;
     min-width: 300px;
@@ -869,15 +859,12 @@ main {
     margin-top: 3px; 
 }
 
-
 .horaires {
     margin-top: 30px;
     background: #ffffff;
     padding: 30px;
     border-radius: 12px;
-
     box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-
     border-left: 5px solid #FCA311; 
 }
 
@@ -900,7 +887,6 @@ main {
     color: #4a2b14;
 }
 
-
 .horaires ul {
     list-style: none;
     padding: 0;
@@ -912,7 +898,6 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
-    
     border-bottom: 1px solid rgba(74, 43, 20, 0.1); 
 }
 
@@ -921,14 +906,12 @@ main {
     padding-bottom: 0;
 }
 
-
 .horaires .days {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
     font-size: 1.1rem;
     color: #4a2b14;
 }
-
 
 .horaires .hours {
     background-color: rgba(252, 163, 17, 0.1); 
@@ -940,9 +923,10 @@ main {
     font-weight: bold;
     text-align: right;
 }
+
 /* =========================================
-   BADGES (Livraison et Halal)
-   ========================================= */
+BADGES (Livraison et Halal)
+========================================= */
 .info-badges {
     display: flex;
     gap: 15px;
@@ -960,27 +944,101 @@ main {
     font-weight: bold;
     font-family: sans-serif;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
 
+    
+    transition: box-shadow 0.3s ease;
+}
+.badge:nth-child(1) {
+    animation-delay: -1.5s;
+}
+.badge:nth-child(2) {
+    animation-delay: -3.5s;
+}
 
 .badge.delivery {
     background-color: #e8f5e9; 
     color: #2e7d32; 
     border: 1px solid #c8e6c9;
+    animation: floatBadgeGlow 5s ease-in-out infinite;
+    animation-delay: 0s;
 }
-
 
 .badge.halal {
     background-color: #fff3e0; 
     color: #ef6c00; 
     border: 1px solid #ffe0b2;
+    animation: floatBadgeGlow 5s ease-in-out infinite;
+    animation-delay: -2.5s;
 }
-
+@keyframes floatBadgeGlow {
+    0%, 100% {
+        translate: 0 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 0 0 rgba(252, 163, 17, 0);
+    }
+    50% {
+        translate: 0 -6px;
+ 
+        box-shadow: 0 12px 20px rgba(0,0,0,0.08), 0 10px 20px rgba(252, 163, 17, 0.4);
+    }
+}
 /* =========================================
-   STYLE DU JOUR DE FERMETURE
-   ========================================= */
-
+STYLE DU JOUR DE FERMETURE
+========================================= */
 .horaires .hours.closed {
     background-color: rgba(211, 47, 47, 0.1); 
     color: #d32f2f; 
+}
+
+/* ==================
+COMPATIBILITY
+=================== */
+@media (max-width: 500px) {
+    .menu-flip-card.is-flipped {
+       
+        transform: perspective(1500px) translateZ(50px) rotateY(180deg);
+    }
+    
+    .card-back h3 {
+        font-size: 1.8rem; 
+    }
+    .price-legend {
+        font-size: 0.7rem;
+    }
+    .menu-category {
+        font-size: 0.9rem;
+    }
+    .menu-header span:first-child {
+        font-size: 0.85rem;
+    }
+    .menu-list li small {
+        font-size: 0.65rem;
+    }
+    .price-tag {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .menu-flip-card.is-flipped {
+        
+        transform: perspective(1500px) translateZ(30px) rotateY(180deg);
+    }
+}
+@media (max-width: 1024px) {
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+       
+        row-gap: 60px;
+        column-gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        grid-template-columns: 1fr;
+        
+        row-gap: 60px;
+        column-gap: 40px;
+        padding: 20px 10px;
+    }
 }
