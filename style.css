@@ -303,6 +303,15 @@ main {
     padding-top: 80vh;
 }
 /*-------menu-------*/
+.menu{
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem; 
+    color: #FCA311; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
+    margin: 0; 
+    letter-spacing: 2px;
+}
+
 #menu-section {
     background-color: #FDF6EC; 
     padding: 100px 0;
@@ -324,7 +333,7 @@ main {
 .menu-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-
+    flex-wrap: nowrap;
     row-gap: 80px; 
     column-gap: 40px;
     justify-content: center;
@@ -992,53 +1001,206 @@ STYLE DU JOUR DE FERMETURE
 /* ==================
 COMPATIBILITY
 =================== */
-@media (max-width: 500px) {
-    .menu-flip-card.is-flipped {
-       
-        transform: perspective(1500px) translateZ(50px) rotateY(180deg);
-    }
-    
-    .card-back h3 {
-        font-size: 1.8rem; 
-    }
-    .price-legend {
-        font-size: 0.7rem;
-    }
-    .menu-category {
-        font-size: 0.9rem;
-    }
-    .menu-header span:first-child {
-        font-size: 0.85rem;
-    }
-    .menu-list li small {
-        font-size: 0.65rem;
-    }
-    .price-tag {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 380px) {
-    .menu-flip-card.is-flipped {
-        
-        transform: perspective(1500px) translateZ(30px) rotateY(180deg);
-    }
-}
-@media (max-width: 1024px) {
-    .menu-container {
-        grid-template-columns: repeat(2, 1fr);
-       
-        row-gap: 60px;
-        column-gap: 30px;
-    }
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
 }
 
 @media (max-width: 768px) {
+    #contact-widgets {
+        right: 15px !important;
+    }
+
+    #logo {
+        font-size: 12vw !important; 
+    }
+    
+    body.scrolled #logo {
+        transform: translate(-20%, -50%) scale(0.55) !important;
+        left: 2rem !important; 
+    }
+
     .menu-container {
-        grid-template-columns: 1fr;
-        
-        row-gap: 60px;
-        column-gap: 40px;
-        padding: 20px 10px;
+        display: grid !important;
+        grid-template-columns: 1fr !important; 
+        justify-items: center !important;
+        row-gap: 50px !important; 
+        padding: 20px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .card-float-wrapper {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important; 
+    }
+
+    .menu-flip-card {
+        width: 280px !important;
+        max-width: 90vw !important;
+        height: 400px !important;
+        margin: 0 auto !important;
+        display: block !important;
+        position: relative !important;
+    }
+
+    .card-front,
+    .card-back {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 15px !important; 
+        box-sizing: border-box !important;
+    }
+
+    .image-stack {
+        width: 160px !important;  
+        height: 160px !important;
+        margin: 10px auto 20px auto !important;
+    }
+
+    .nos-pizzas-btn {
+        width: 80% !important;
+        max-width: 180px !important;
+        font-size: 1rem !important;
+        padding: 12px !important;
+        position: absolute !important;
+        bottom: 25px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .card-back h3 {
+        font-size: 1.5rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .menu-header span:first-child {
+        font-size: 0.9rem !important;
+    }
+
+    .price-tag {
+        font-size: 0.75rem !important;
+    }
+
+    #localisation-section {
+        padding: 40px 15px !important;
+        width: 100vw !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    
+    .location-info {
+        padding: 20px 15px !important; 
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        text-align: center !important; 
+    }
+
+    .contact-line {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+        text-align: center !important;
+    }
+
+    .info-badges {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    
+
+    .horaires {
+        padding: 20px 15px !important;
+        margin-top: 25px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .horaires-header {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .horaires li {
+        display: flex !important;
+        flex-direction: column !important; 
+        align-items: center !important;
+        gap: 8px !important;
+        text-align: center !important;
+        padding: 12px 0 !important;
+    }
+
+    .horaires .days {
+        font-size: 0.95rem !important;
+        white-space: normal !important;
+        line-height: 1.4 !important;
+    }
+
+    .horaires .hours {
+        font-size: 0.85rem !important;
+        padding: 6px 15px !important;
+    }
+
+    #main-footer {
+        padding: 25px 15px 15px !important; 
+        width: 100vw !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .footer-logo {
+        font-size: 2.2rem !important; 
+        margin-bottom: 10px !important;
+    }
+
+    .footer-content p {
+        font-size: 0.95rem !important; 
+    }
+
+    .footer-bottom {
+        margin-top: 20px !important; 
+        padding-top: 15px !important;
+        font-size: 0.8rem !important; 
+    }
+
+    
+    .location-container {
+        width: 100% !important;
+        max-width: 100vw !important; 
+        overflow: hidden !important; 
+        box-sizing: border-box !important;
+    }
+
+    .location-map {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 300px !important; 
+        margin: 0 !important; 
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        border-radius: 0 0 20px 20px !important;
+        overflow: hidden !important;
+        display: block !important;
+    }
+
+    .location-map iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        border: none !important; 
+        display: block !important;
+        pointer-events: auto !important; 
     }
 }
